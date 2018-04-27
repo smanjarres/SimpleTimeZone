@@ -18,11 +18,19 @@ func main() {
 	fmt.Println("-----------------------------------------")
 	fmt.Printf("Time Zone %s: %s \n\n", timeZone1, tResult1)
 
-	///Specific time zone with exact date
-	t, _ := time.Parse("yyyyMMdd hh:mm:ss", "20180426 23:22:00")
-	timeZone2 := "Europe/London"
+	///Specific time zone with exact date UTF
+	t, _ := time.Parse(time.RFC3339, "2013-01-13T02:00:00+00:00")
+	timeZone2 := "America/Bogota"
 	tResult2 := timeZone.GetTimeZone(t, timeZone2)
 
 	fmt.Println("-----------------------------------------")
 	fmt.Printf("Time Zone %s: %s \n\n", timeZone2, tResult2)
+
+	///Specific time zone with exact unix date UTF
+
+	timeZone3 := "America/Bogota"
+	tResult3 := timeZone.GetUnixTimeZone(1294884000, timeZone3)
+
+	fmt.Println("-----------------------------------------")
+	fmt.Printf("Time Zone %s: %s \n\n", timeZone3, tResult3)
 }
